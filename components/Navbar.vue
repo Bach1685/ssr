@@ -29,6 +29,16 @@
               About
             </nuxt-link>
           </li>
+          <li class="nav-item">
+            <nuxt-link
+              no-prefetch
+              active-class="active"
+              class="nav-link"
+              to="/users"
+            >
+              Users
+            </nuxt-link>
+          </li>
         </ul>
       </div>
     </div>
