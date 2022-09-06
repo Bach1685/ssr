@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "bootstrap": "^5.2.0",
     "core-js": "^3.19.3",
     "cross-env": "^7.0.3",
     "nuxt": "^2.15.8",
