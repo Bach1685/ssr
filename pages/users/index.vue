@@ -2,20 +2,27 @@
   <section>
     <h1>Users page</h1>
     <ul>
-      <li v-for="(user, i) of 5" :key="i">
-        <a href="#" @click.prevent="openUser(user)">User {{ user }}</a>
+      <li v-for="user of users" :key="user.id">
+        <a href="#" @click.prevent="openUser(user)">User {{ user.name }}</a>
       </li>
     </ul>
   </section>
 </template>
 <script>
 export default {
-  methods:{
-    openUser(user){
-      this.$router.push(`/users/${user}`)
-
-    }
-  }
+  data: () => ({
+    users: [],
+  }),
+  async mounted() {
+    this.users = await this.$axios.$get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+  },
+  methods: {
+    openUser(user) {
+      this.$router.push(`/users/${user}`);
+    },
+  },
 };
 </script>
 
