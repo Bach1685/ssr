@@ -1,5 +1,8 @@
 <template>
   <section>
+    <div v-if="this.$route.query.message" class="alert alert-danger mb-3">
+      Need login first
+    </div>
     <form @submit.prevent="onSubmit">
       <h1>Login page</h1>
 
