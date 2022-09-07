@@ -10,6 +10,12 @@
 </template>
 <script>
 export default {
+  async asyncData({ $axios }) {
+    const users = await $axios.$get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    return { users };
+  },
   data: () => ({
     users: [],
   }),
