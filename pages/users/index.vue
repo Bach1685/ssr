@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Users page</h1>
+    <h1>{{ pageTitle }}</h1>
     <ul>
       <li v-for="user of users" :key="user.id">
         <a href="#" @click.prevent="openUser(user)">User {{ user.name }}</a>
@@ -17,7 +17,7 @@ export default {
     return { users };
   },
   data: () => ({
-    users: [],
+    pageTitle: "Users page",
   }),
   async mounted() {
     this.users = await this.$axios.$get(
