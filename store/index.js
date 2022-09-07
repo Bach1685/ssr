@@ -7,17 +7,20 @@ export const mutations = {
     state.token = token;
   },
   clearToken(state) {
-    state.token = null
-  }
+    state.token = null;
+  },
 };
 
 export const actions = {
-  login({commit}){
-    commit('setToken', 'truetoken')
+  nuxtServerInit({ dispatch }) {
+    console.log("start app");
   },
-  logout({commit}){
-    commit('clearToken')
-  }
+  login({ commit }) {
+    commit("setToken", "truetoken");
+  },
+  logout({ commit }) {
+    commit("clearToken");
+  },
 };
 
 export const getters = {
