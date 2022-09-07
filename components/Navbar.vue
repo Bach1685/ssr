@@ -39,7 +39,7 @@
               Users
             </nuxt-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="!hasToken">
             <nuxt-link
               no-prefetch
               active-class="active"
@@ -49,9 +49,29 @@
               Login
             </nuxt-link>
           </li>
+
+          <li v-else class="nav-item">
+            <a @click.prevent="logout" class="nav-link"> Logout </a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+      this.$route.push("/login");
+    },
+  },
+  computed: {
+    hasToken() {
+      return this.$store.getters.hasToken;
+    },
+  },
+};
+</script>
 
